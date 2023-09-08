@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
+const cntrlmain=require('../controllers/others.js');
+const ctrllocations =require('../controllers/locations.js');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+router.get('/other',cntrlmain.about);
+router.get('/',ctrllocations.homelist);
+router.get('/location',ctrllocations.locationinfo);
+router.get('/location/review/new',ctrllocations.addreview);
+router.get('/about',cntrlmain.about);
+module.exports=router;
